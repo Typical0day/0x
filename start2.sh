@@ -5,7 +5,7 @@
 Green="\e[92;1m"
 RED="\033[1;31m"
 BG_RED="\033[41;97;1m" # BG MERAH
-BG_BLUE="\033[44;97;1m" # BG BIRU
+BG_BLUE="\\033[44;97;1m" # BG BIRU
 CYAN="\033[96;1m"
 NC='\033[0m'
 YELLOW="\033[33m"
@@ -16,18 +16,19 @@ REDBG="\033[41;37m"
 OK="${Green}--->${FONT}"
 ERROR="${RED}[ERROR]${FONT}"
 GRAY="\e[1;30m"
+NC='\e[0m'
 red='\e[1;31m'
 green='\e[0;32m'
 Xark="\033[0m"
 Orange='\033[0;33m'
 
 ##############################
-buyer=$(wget -qO- https://vijay.hitam.id/win/installer/user/lutfifakee/lutfifakee/)
-buyerexp=$(wget -qO- https://vijay.hitam.id/win/Lutfifakee/windows/main/tgl)
-versi=$(wget -qO- https://vijay.hitam.id/win/installer/versido/)
+buyer=$(wget -qO- https://rizz.pw/installer/user/adzan/adzan)
+buyerexp=$(wget -qO- https://raw.githubusercontent.com/Zeddgansz/windows/main/tgl)
+versi=$(wget -qO- https://rizz.pw/installer/versido)
 
 ##############################
-today=$(date -d "0 days" +"%Y-%m-%d")
+today=`date -d "0 days" +"%Y-%m-%d"`
 valid=$buyerexp
 
 # // DAYS LEFT
@@ -44,17 +45,17 @@ fi
 length=13
 charset="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 str=""
-Manufacturer=$(dmidecode -t1 | grep Manufacturer | awk '{print $2}')
+Manufacturer=`dmidecode -t1 | grep Manufacturer | awk '{print $2}'`
 
 if [[ "$Manufacturer" == "Linode" ]]; then
     prov="${green}LINODE${NC}"
 elif [[ "$Manufacturer" == "DigitalOcean" ]]; then
     prov="${BLUE}DigitalOcean${NC}"
 else
-    prov="${red}UNKNOWN${NC}"
+    prov="${red}UNKOWN${NC}"
 fi
 
-pass="Hackerslot1337@"
+pass="adzanfauzan6@"
 
 # Buat loop sebanyak jumlah karakter
 for i in $(seq 1 $length); 
@@ -71,7 +72,7 @@ clear
 if [[ "$today" > "$valid" ]]; then
   echo -e "${BG_RED}        Script kadaluwarsa. Hubungi admin untuk memperbarui.${NC}"
   echo -e "${BG_RED}[ERROR] contact admin :                                     ${NC}"
-  echo -e "${BG_RED}        Email: HACKNCORP@gmail.com                ${NC}"
+  echo -e "${BG_RED}        Telegram: @zeddgans                ${NC}"
   exit 1  # Keluar dengan kode error 1
 fi
 
@@ -79,7 +80,7 @@ while true; do
     clear
     echo -e "${green} ┌────────────────────────────────────────────┐ ${NC}"
     echo -e "${green} │${NC} ${YELLOW}Version         :${NC} ${red}$versi${NC}"
-    echo -e "${green} │${NC} ${YELLOW}Creator         :${NC} ${red}Lutfifakee${NC}"
+    echo -e "${green} │${NC} ${YELLOW}Creator         :${NC} ${red}zeddgans${NC}"
     echo -e "${green} │${NC} ${YELLOW}Client Name     :${NC} ${red}$buyer${NC}"
     echo -e "${green} │${NC} ${YELLOW}Provider        :${NC} $prov"
     echo -e "${green} │${NC} ${YELLOW}Expiry In       :${NC} ${red}$sisa${NC}"
@@ -91,12 +92,7 @@ while true; do
     read -p "$(echo -e $YELLOW"Pilih (1-6): "$NC)" PILIHOS
 
     case "$PILIHOS" in
-        1) 
-            PILIHOS="https://vijay.hitam.id/win/win2019.xz"  
-            IFACE="Ethernet 3"  
-            IFACEA="Ethernet 4"  
-            OS="2019"
-            ;;
+        1) PILIHOS="https://vijay.hitam.id/win/win2019.xz"  IFACE="Ethernet 3"  IFACEA="Ethernet 4"  OS="2019";;
         *) 
             echo -e "${YELLOW}Pilih (1-6): ${NC}"
             continue
@@ -118,9 +114,12 @@ while true; do
        read -n 1 -s -r -p "Press any key to continue..."
     else
        echo -e ""
-       echo -e "${BLUE}Provider Detected (${red}Unknown/Untested${NC})${NC}"
+       echo -e "${BLUE}Provider Detected (${red}Unkown/Untested${NC})${NC}"
+       # echo -e "${RED}Do With Your Own Risk/lakukan dengan resiko ditanggung sendiri${NC}"
+       # read -n 1 -s -r -p "Press any key to continue..."
        echo -e "${red}Provider Tidak Tersedia, Jika ingin request${NC}"
        echo -e "${red}Contact Develop zeddgans${NC}"
+
     fi
 
     clear
@@ -128,7 +127,7 @@ while true; do
     echo -e "        ${BG_BLUE}Installing....${NC}"
     echo -e "${red}└────────────────────────────────┘${NC}"
     apt update >/dev/null 2>&1
-    wget --no-check-certificate -qO RDP.sh 'https://vijay.hitam.id/win/InstallNET.sh' && chmod a+x RDP.sh
-    bash RDP.sh -windows $OS --pwin $pass --eth1 "$IFACE" --eth2 "$IFACEA" --insid $str --mmbr $buyer --apilinode $linodeapi
+    wget --no-check-certificate -qO RDP.sh 'rizz.1.hns.to//InstallNET.sh' && chmod a+x RDP.sh
+    bash RDP.sh -windows $OS --pwin $pass --eth1 "'$IFACE'" --eth2 "'$IFACEA'" --insid $str --mmbr $buyer --apilinode $linodeapi
     break
 done
