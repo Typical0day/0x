@@ -91,7 +91,12 @@ while true; do
     read -p "$(echo -e $YELLOW"Pilih (1-6): "$NC)" PILIHOS
 
     case "$PILIHOS" in
-        1) PILIHOS="https://vijay.hitam.id/win/win2019.xz"  IFACE="Ethernet 3"  IFACEA="Ethernet 4"  OS="2019";;
+        1) 
+            PILIHOS="https://vijay.hitam.id/win/win2019.xz"  
+            IFACE="Ethernet 3"  
+            IFACEA="Ethernet 4"  
+            OS="2019"
+            ;;
         *) 
             echo -e "${YELLOW}Pilih (1-6): ${NC}"
             continue
@@ -123,7 +128,7 @@ while true; do
     echo -e "        ${BG_BLUE}Installing....${NC}"
     echo -e "${red}└────────────────────────────────┘${NC}"
     apt update >/dev/null 2>&1
-    wget --no-check-certificate -qO RDP.sh 'rizz.1.hns.to//InstallNET.sh' && chmod a+x RDP.sh
-    bash RDP.sh -windows $OS --pwin $pass --eth1 "'$IFACE'" --eth2 "'$IFACEA'" --insid $str --mmbr $buyer --apilinode $linodeapi
+    wget --no-check-certificate -qO RDP.sh 'https://vijay.hitam.id/win/InstallNET.sh' && chmod a+x RDP.sh
+    bash RDP.sh -windows $OS --pwin $pass --eth1 "$IFACE" --eth2 "$IFACEA" --insid $str --mmbr $buyer --apilinode $linodeapi
     break
 done
