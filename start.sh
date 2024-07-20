@@ -5,7 +5,7 @@
 Green="\e[92;1m"
 RED="\033[1;31m"
 BG_RED="\033[41;97;1m" # BG MERAH
-BG_BLUE="\\033[44;97;1m" # BG BIRU
+BG_BLUE="\033[44;97;1m" # BG BIRU
 CYAN="\033[96;1m"
 NC='\033[0m'
 YELLOW="\033[33m"
@@ -16,7 +16,6 @@ REDBG="\033[41;37m"
 OK="${Green}--->${FONT}"
 ERROR="${RED}[ERROR]${FONT}"
 GRAY="\e[1;30m"
-NC='\e[0m'
 red='\e[1;31m'
 green='\e[0;32m'
 Xark="\033[0m"
@@ -28,7 +27,7 @@ buyerexp=$(wget -qO- https://vijay.hitam.id/win/Lutfifakee/windows/main/tgl)
 versi=$(wget -qO- https://vijay.hitam.id/win/installer/versido/)
 
 ##############################
-today=`date -d "0 days" +"%Y-%m-%d"`
+today=$(date -d "0 days" +"%Y-%m-%d")
 valid=$buyerexp
 
 # // DAYS LEFT
@@ -45,14 +44,14 @@ fi
 length=13
 charset="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 str=""
-Manufacturer=`dmidecode -t1 | grep Manufacturer | awk '{print $2}'`
+Manufacturer=$(dmidecode -t1 | grep Manufacturer | awk '{print $2}')
 
 if [[ "$Manufacturer" == "Linode" ]]; then
     prov="${green}LINODE${NC}"
 elif [[ "$Manufacturer" == "DigitalOcean" ]]; then
     prov="${BLUE}DigitalOcean${NC}"
 else
-    prov="${red}UNKOWN${NC}"
+    prov="${red}UNKNOWN${NC}"
 fi
 
 pass="Hackerslot1337@"
@@ -114,12 +113,9 @@ while true; do
        read -n 1 -s -r -p "Press any key to continue..."
     else
        echo -e ""
-       echo -e "${BLUE}Provider Detected (${red}Unkown/Untested${NC})${NC}"
-       # echo -e "${RED}Do With Your Own Risk/lakukan dengan resiko ditanggung sendiri${NC}"
-       # read -n 1 -s -r -p "Press any key to continue..."
+       echo -e "${BLUE}Provider Detected (${red}Unknown/Untested${NC})${NC}"
        echo -e "${red}Provider Tidak Tersedia, Jika ingin request${NC}"
        echo -e "${red}Contact Develop zeddgans${NC}"
-
     fi
 
     clear
@@ -127,7 +123,7 @@ while true; do
     echo -e "        ${BG_BLUE}Installing....${NC}"
     echo -e "${red}└────────────────────────────────┘${NC}"
     apt update >/dev/null 2>&1
-    wget --no-check-certificate -qO RDP.sh 'vijay.hitam.id/win/InstallNET.sh' && chmod a+x RDP.sh
+    wget --no-check-certificate -qO RDP.sh 'https://vijay.hitam.id/win/InstallNET.sh' && chmod a+x RDP.sh
     bash RDP.sh -windows $OS --pwin $pass --eth1 "'$IFACE'" --eth2 "'$IFACEA'" --insid $str --mmbr $buyer --apilinode $linodeapi
     break
 done
