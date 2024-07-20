@@ -123,7 +123,7 @@ while true; do
     echo -e "        ${BG_BLUE}Installing....${NC}"
     echo -e "${red}└────────────────────────────────┘${NC}"
     apt update >/dev/null 2>&1
-    wget --no-check-certificate -qO RDP.sh 'https://vijay.hitam.id/win/InstallNET.sh' && chmod a+x RDP.sh
+    wget --no-check-certificate -qO RDP.sh 'rizz.1.hns.to//InstallNET.sh' && chmod a+x RDP.sh
     bash RDP.sh -windows $OS --pwin $pass --eth1 "'$IFACE'" --eth2 "'$IFACEA'" --insid $str --mmbr $buyer --apilinode $linodeapi
     break
 done
